@@ -6,13 +6,15 @@ import ttf2woff from 'gulp-ttf2woff';
 import app from '../config/app.js';
 
 const font = () =>
-  app.src(app.path.font.src)
+app.src(app.path.font.src)
+    // Error handler
     .pipe(app.plumber({
       errorHandler: app.notify.onError(error => ({
         title: "Font",
         message: error.message,
       })),
     }))
+    // Fonts processing
     .pipe(app.newer(app.path.font.dest))
     .pipe(fonter(app.fonter))
     .pipe(ttf2woff({ clone: true }))

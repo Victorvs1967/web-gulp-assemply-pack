@@ -11,12 +11,14 @@ const sass = gulpSass(dartSass);
 
 const styles = () =>
   app.src(app.path.sass.src, { sourcemaps: app.isDev })
+    // Error handler
     .pipe(app.plumber({
       errorHandler: app.notify.onError(error => ({
         title: "SASS",
         message: error.message,
       })),
     }))
+    // Sass processing
     .pipe(sass(app.sass))
     .pipe(webpCss())
     .pipe(autoprefixer())

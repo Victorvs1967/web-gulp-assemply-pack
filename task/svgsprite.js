@@ -3,13 +3,15 @@ import app from '../config/app.js';
 
 const svgSprite = () =>
   app.src(app.path.img.icons)
-  .pipe(app.plumber({
-    errorHandler: app.notify.onError(error => ({
-      title: 'SVG',
-      message: error.message,
+    // Error handler
+    .pipe(app.plumber({
+      errorHandler: app.notify.onError(error => ({
+        title: 'SVG',
+        message: error.message,
+      }))
     }))
-  }))
-  .pipe(sprite(app.svg))
-  .pipe(app.dest(app.path.img.dest));
+    // SVG processing
+    .pipe(sprite(app.svg))
+    .pipe(app.dest(app.path.img.dest));
 
 export default svgSprite;

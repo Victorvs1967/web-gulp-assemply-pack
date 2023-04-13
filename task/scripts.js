@@ -6,12 +6,14 @@ import app from '../config/app.js'
 
 const scripts = () =>
   app.src(app.path.js.src, { sourcemaps: app.isDev })
+    // Error handler
     .pipe(app.plumber({
       errorHandler: app.notify.onError(error => ({
         title: "JavaScript",
         message: error.message,
       })),
     }))
+    // Script processing
     .pipe(babel())
     .pipe(replace(/@img\//g, '../img/'))
     .pipe(webpack(app.webpack))
