@@ -1,9 +1,8 @@
 @import ../vars
 @import ../mixins
 
-// Navbar
 .header
-  margin-top: 3.2rem
+  padding-top: 3.2rem
   overflow: hidden
   &.fixed
     width: 100%
@@ -16,19 +15,19 @@
     justify-content: space-between
     align-items: center
     .logo
-      a
-        color: white
-    nav
-      .menu
+      &-link
+        font-size: 2.4rem
+        font-weight: 500
+        color: inherit
+    .nav
+      &__menu
         display: flex
         gap: 4rem
         &.active
           display: none
-        // .menu__item
-        &__item
+        &_item
           font-size: 1.4rem
           line-height: 1.6
-          // .menu__item-link
           &-link
             color: $primaryLight
             transition: .3s color

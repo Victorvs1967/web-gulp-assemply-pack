@@ -1,7 +1,7 @@
 // Burger Menu
 export const burgerMenu = () => {
   const burger = document.querySelector('.burger'),
-        menu = document.querySelector('.menu'),
+        menu = document.querySelector('.nav__menu'),
         body = document.querySelector('body'),
         navBtns = document.querySelector('.nav__btns');
 
