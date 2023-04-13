@@ -1,20 +1,15 @@
-// PUG processing
-import plumber from 'gulp-plumber';
-import notify from 'gulp-notify';
 import pugs from 'gulp-pug';
 import webpHtml from 'gulp-webp-html';
 import gulpif from 'gulp-if';
 import replace from 'gulp-replace';
 
-import { src, dest } from '../gulpfile.js';
-import path from '../config/path.js';
 import app from '../config/app.js';
 
 const pug = () =>
-  src(path.pug.src)
+  app.src(app.path.pug.src)
     // Error handler
-    .pipe(plumber({
-      errorHandler: notify.onError(error => ({
+    .pipe(app.plumber({
+      errorHandler: app.notify.onError(error => ({
         title: "PUG",
         message: error.message,
       })),
@@ -23,6 +18,6 @@ const pug = () =>
     .pipe(pugs(app.pug))
     .pipe(replace(/@img\//g, './img/'))
     .pipe(gulpif(app.isProd, webpHtml()))
-    .pipe(dest(path.pug.dest));
+    .pipe(app.dest(app.path.pug.dest));
 
 export default pug;

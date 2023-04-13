@@ -1,4 +1,4 @@
-// Rmove ./dist folder
+// Remove ./dist folder
 import { deleteAsync } from 'del';
 
 import path from '../config/path.js';
