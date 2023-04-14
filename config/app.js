@@ -23,6 +23,7 @@ const app = {
   pug: {
     doctype: 'html',
     pretty: isDev,
+    data: {},
   },
   sass: {
     outputStyle: isProd ? 'compressed' : 'expanded',
