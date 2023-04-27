@@ -1,5 +1,15 @@
 extends ./layout/_app
 
-block page
-  //- include ./include/_home
-  include ./include/_examples
+block title
+  title Main Page New
+
+block header
+  //- include ./include/_header
+
+block content
+  main.main
+    //- include ./include/_home
+    include ./include/_examples
+
+block footer
+  include ./include/_footer

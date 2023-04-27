@@ -1,8 +1,12 @@
+import fs from 'fs';
+
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import newer from 'gulp-newer';
 import path from '../config/path.js';
+
+import { age } from '../data/_age.js';
 
 const { src, dest } = gulp;
 const isProd = process.argv.includes('--production');
@@ -23,7 +27,11 @@ const app = {
   pug: {
     doctype: 'html',
     pretty: isDev,
-    data: {},
+    basedir: 'src/pug',
+    data: {
+      users: JSON.parse(fs.readFileSync('./data/users.json')),
+      age: age,
+    },
   },
   sass: {
     outputStyle: isProd ? 'compressed' : 'expanded',
@@ -50,6 +58,9 @@ const app = {
         sprite: '../icons/icons.svg',
         example: true,
       },
+    },
+    shape: {
+      transform: [ 'svgo' ],
     },
   },
 };

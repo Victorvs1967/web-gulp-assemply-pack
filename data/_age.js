@@ -1,5 +1,3 @@
-export const sum = (a, b) => a + b;
-
 export const age = birth => {
   const [day, month, year] = birth.split('-');
   const now = new Date();
