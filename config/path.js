@@ -35,6 +35,13 @@ const path = {
     watch: src.concat('/font/**/*.{ttf,otf,eot,otc,woff,woff2,svg}'),
     dest: dest.concat('/font/'),
   },
+  lib: {
+    srcCss: src.concat('/libs/css/*.css'),
+    srcJs: src.concat('/libs/js/*.js'),
+    watch: src.concat(['/libs/css/*.css', '/libs/js/*.js']),
+    destCss: dest.concat('/css/'),
+    destJs: dest.concat('/js/'),
+  },
 };
 
 export default path;
